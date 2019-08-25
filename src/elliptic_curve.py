@@ -67,12 +67,11 @@ class Point:
 
     def __rmul__(self, coefficient):
         """coefficient * self"""
-        coef = coefficient
         current = self
         result = self.__class__(None, None, self.a, self.b)
-        while coef:
-            if coef & 1:
+        while coefficient:
+            if coefficient & 1:
                 result += current
             current += current
-            coef >>= 1
+            coefficient >>= 1
         return result
